@@ -22,5 +22,8 @@
   "homepage": "https://github.com/tesera/colorbrewify#readme",
   "devDependencies": {
     "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "colorbrewer": "^1.0.0"
   }
 }
