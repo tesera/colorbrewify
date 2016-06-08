@@ -8,4 +8,13 @@ test('sequential test', function(t) {
 
     t.equal(colorbrewer(seq), 'sequential');
 
-})
+});
+
+test('binary test', function(t) {
+    t.plan(1);
+
+    bin = [true,false,true,true,false];
+
+    t.equal(colorbrewer(bin), 'binary');
+
+});
