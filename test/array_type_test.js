@@ -9,3 +9,12 @@ test('binary test', function(t) {
     t.equal(array_type(arr), 'boolean');
 
 });
+
+test('object test', function(t) {
+    t.plan(1);
+
+    arr = [new Object(),{}];
+
+    t.equal(array_type(arr), 'object');
+
+});
