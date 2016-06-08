@@ -1,0 +1,26 @@
+{
+  "name": "libcolorbrewer",
+  "version": "1.0.0",
+  "description": "Write small lib which takes in an array of values and give you back an array of same length of colour brewer hex values.",
+  "main": "lib/colorbrewify.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/tape test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tesera/colorbrewify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tesera/colorbrewify/issues"
+  },
+  "homepage": "https://github.com/tesera/colorbrewify#readme",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  }
+}
