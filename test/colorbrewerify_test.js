@@ -26,17 +26,17 @@ test('binary test', function(t) {
 
 });
 
-test('qualitative test', function(t) {
-    t.plan(2);
+// test('qualitative test', function(t) {
+//     t.plan(2);
 
-    arr = ["a","b","b","c"];
+//     arr = ["a","b","b","c"];
 
-    var x = colorbrewify(arr);
+//     var x = colorbrewify(arr);
 
-    t.equal(x("a"), colorbrewer.YlGn[3][0]);
-    t.equal(x("c"), colorbrewer.YlGn[3][2]);
+//     t.equal(x("a"), colorbrewer.YlGn[3][0]);
+//     t.equal(x("c"), colorbrewer.YlGn[3][2]);
 
-});
+// });
 
 test('diverging test', function(t) {
     t.plan(2);
