@@ -48,3 +48,13 @@ test('diverging test', function(t) {
     t.equal(x(-1), colorbrewer.YlGn[3][0]);
     t.equal(x(1), colorbrewer.YlGn[3][2]);
 });
+
+test('scheme config', function(t) {
+    t.plan(1);
+
+    arr = [true,false]
+
+    var x = colorbrewify(arr, {scheme: 'PuRd'});
+
+    t.equal(x(true), colorbrewer.PuRd[3][2]);
+});
