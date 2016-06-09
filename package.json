@@ -24,6 +24,7 @@
     "tape": "^4.5.1"
   },
   "dependencies": {
-    "colorbrewer": "^1.0.0"
+    "colorbrewer": "^1.0.0",
+    "d3": "^3.5.17"
   }
 }

@@ -2,30 +2,37 @@ var test = require('tape');
 var colorbrewify = require('../');
 var colorbrewer = require('colorbrewer');
 
-test('it complains about badly formatted arrays', function(t) {
+test('sequential test', function(t) {
     t.plan(1);
 
-    data = [1,{},false];
+    arr = [1,2,3,4,5,6,3,2,3,6,1];
 
-    t.throws(function(){
-        colorbrewify(data);
-    });
+    t.deepEquals(colorbrewify(arr), [1,6]);
+
 });
-
-// test('sequential test', function(t) {
-//     t.plan(1);
-
-//     actual = [1,2,3,4,5,6,3,2,3,6,1];
-
-//     t.equal(colorbrewify(actual), colorbrewer.YlGn[3]);
-
-// });
 
 test('binary test', function(t) {
     t.plan(1);
 
-    bin = [true,false,true,true,false];
+    arr = [true,false,true,true,false];
 
-    t.equal(colorbrewify(bin), colorbrewer.YlGn[3]);
+    t.deepEquals(colorbrewify(arr), [true, false]);
 
+});
+
+test('qualitative test', function(t) {
+    t.plan(1);
+
+    arr = ["a","b","b","c"];
+
+    t.deepEquals(colorbrewify(arr), ["a","c"]);
+
+});
+
+test('diverging test', function(t) {
+    t.plan(1);
+
+    arr = [-1,0,1];
+
+    t.deepEquals(colorbrewify(arr), [-1,1]);
 });
