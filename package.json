@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "colorbrewer": "^1.0.0",
-    "d3": "^3.5.17"
+    "d3": "^3.5.17",
+    "d3-scale-chromatic": "^0.3.0"
   }
 }
