@@ -21,15 +21,14 @@ test('diverging values', function(t) {
     var expectedColors = ['rgb(142, 1, 82)', 'rgb(142, 1, 82)', 'rgb(142, 1, 82)', 'rgb(142, 1, 82)', 'rgb(39, 100, 25)', 'rgb(39, 100, 25)', 'rgb(39, 100, 25)'];
     var values = [-3, -2, -1, 0, 1, 2, 3];
     var colors = colorbrewify(values);
-    t.equal(colors, expectedColors);
+    t.deepLooseEqual(colors, expectedColors);
     t.end();
 });
 
-// test('binary values', function(t) {
-//     var expectedColors = [];
-//     t.skip('not implemented');
-//     var values = [true, false, true, true, false];
-//     var colors = colorbrewify(values);
-//     t.equal(colors, expectedColors);
-//     t.end();
-// });
+test('binary values', function(t) {
+    var expectedColors = ['#7fc97f', '#beaed4', '#7fc97f', '#7fc97f', '#beaed4'];
+    var values = [true, false, true, true, false];
+    var colors = colorbrewify(values);
+    t.deepLooseEqual(colors, expectedColors);
+    t.end();
+});
