@@ -1,21 +1,25 @@
 {
-  "name": "libcolorbrewer",
+  "name": "colorbrewify",
   "version": "1.0.0",
-  "description": "Write small lib which takes in an array of values and give you back an array of same length of colour brewer hex values.",
-  "main": "lib/colorbrewify.js",
+  "description": "values to colors.",
+  "main": "colorbrewify.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "node_modules/.bin/tape test/**/*.js"
+    "test": "tape test/**/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tesera/colorbrewify.git"
   },
-  "keywords": [],
+  "keywords": [
+    "D3",
+    "color brewer",
+    "mapping"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tesera/colorbrewify/issues"
   },
@@ -24,8 +28,7 @@
     "tape": "^4.5.1"
   },
   "dependencies": {
-    "colorbrewer": "^1.0.0",
-    "d3": "^3.5.17",
+    "d3-scale": "^0.9.3",
     "d3-scale-chromatic": "^0.3.0"
   }
 }
