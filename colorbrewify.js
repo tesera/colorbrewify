@@ -3,7 +3,6 @@ var chromatic = require('d3-scale-chromatic');
 var schemes = require('./schemes.json')
 
 module.exports = function (values) {
-    var scheme = schemes['sequentialSingle'][0];
     var brewer = {
         sequential: scale.scaleSequential(chromatic.interpolatePiYG),
         qualitative: scale.scaleOrdinal(chromatic.schemeAccent),
@@ -16,9 +15,18 @@ module.exports = function (values) {
         if (uniques.indexOf(v) === -1) uniques.push(v);
         return uniques
     }, []);
+
+    var isNumeric = uniqueValues.reduce(function (is, v) {
+        return is || !isNaN(parseFloat(v)) && isFinite(v);
+    }, false);
+
+    var hasNegative = uniqueValues.reduce(function (has, v) {
+        return has || (v < 0);
+    }, false);
    
     // if unique values is less than 5% consider values qualitative
-    if (uniqueValues.length / values.length < 0.5) character = 'qualitative';
+    if (isNumeric && hasNegative) character = 'diverging';
+    else if (uniqueValues.length / values.length < 0.5) character = 'qualitative';
 
     console.log('values character is %s', character);
 
