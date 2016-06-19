@@ -4,7 +4,7 @@ var schemes = require('./schemes.json')
 
 module.exports = function (values) {
     var character;
-    var brewers = {
+    var scales = {
         sequential: scale.scaleSequential(chromatic.interpolatePiYG),
         qualitative: scale.scaleOrdinal(chromatic.schemeAccent),
         diverging: scale.scaleSequential(chromatic.interpolatePiYG),
@@ -14,6 +14,9 @@ module.exports = function (values) {
     var sorted = values.slice().sort(function (a, b) {
         return a - b;
     });
+
+    var min = sorted[0];
+    var max = sorted[sorted.length-1];
 
     var distinct = values.reduce(function (uniques, v) {
         if (uniques.indexOf(v) === -1) uniques.push(v);
@@ -37,9 +40,5 @@ module.exports = function (values) {
     else if (distinct.length / values.length < 0.5) character = 'qualitative';
     else character = 'sequential';
 
-    console.log('values character is %s', character);
-
-    var brewer = brewers[character];
-    brewer.domain([sorted[0], sorted[sorted.length-1]]);
-    return values.map(brewer);
+    return values.map(scales[character].domain([min, max]));
 };
