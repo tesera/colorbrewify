@@ -2,7 +2,7 @@
   "name": "colorbrewify",
   "version": "1.0.0",
   "description": "values to colors.",
-  "main": "colorbrewify.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },

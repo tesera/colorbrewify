@@ -8,7 +8,8 @@ module.exports = function (values) {
         sequential: scale.scaleSequential(chromatic.interpolatePiYG),
         qualitative: scale.scaleOrdinal(chromatic.schemeAccent),
         diverging: scale.scaleSequential(chromatic.interpolatePiYG),
-        binary: scale.scaleOrdinal(chromatic.schemeAccent),
+        binary: scale
+        .scaleOrdinal(chromatic.schemeAccent),
     };
 
     var uniqueValues = values.reduce(function (uniques, v) {
