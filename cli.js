@@ -3,20 +3,17 @@
 var program = require('commander');
 var fs = require('fs');
 var csv = require('csv');
-var _ = require('lodash');
 var colorbrewify = require('.');
 
-// converts columns to rows and vice versa
+// from rows it returns columns and vice versa
 function flip(data) {
-    var flipped = data.reduce(function (flipped, dim) {
+    return data.reduce(function (flipped, dim) {
         dim.forEach(function (val, index) {
             flipped[index] = flipped[index] || [];
             flipped[index].push(val)
         });
         return flipped;
     }, []);
-
-    return flipped;
 }
 
 program
