@@ -6,6 +6,7 @@
   "directories": {
     "test": "test"
   },
+  "bin": "./cli.js",
   "scripts": {
     "test": "tape test/**/*.js"
   },
@@ -28,6 +29,8 @@
     "tape": "^4.5.1"
   },
   "dependencies": {
+    "commander": "^2.9.0",
+    "csv": "^1.1.0",
     "d3-scale": "^0.9.3",
     "d3-scale-chromatic": "^0.3.0"
   }
