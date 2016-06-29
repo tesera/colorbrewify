@@ -5,7 +5,7 @@ var schemes = require('./schemes.json')
 module.exports = function (values) {
     var character;
     var scales = {
-        sequential: scale.scaleSequential(chromatic.interpolatePiYG),
+        sequential: scale.scaleSequential(chromatic.interpolateOrRd),
         qualitative: scale.scaleOrdinal(chromatic.schemeAccent),
         diverging: scale.scaleSequential(chromatic.interpolatePiYG),
         binary: scale.scaleOrdinal(chromatic.schemeAccent),
@@ -34,10 +34,14 @@ module.exports = function (values) {
     var isBinary = distinct.reduce(function (is, v) {
         return is && v.toString().match(/yes|no|true|false|1|0/i);
     }, true);
+
+    var isWholeNumber = distinct.reduce(function (is, v) {
+        return is && (!/\d*\.\d*/.test(parseFloat(v)));
+    }, true);
    
     if (isBinary) character = 'binary';
     else if (isNumeric && hasNegative) character = 'diverging';
-    else if (distinct.length / values.length < 0.5) character = 'qualitative';
+    else if (isWholeNumber && (distinct.length / values.length < 0.5)) character = 'qualitative';
     else character = 'sequential';
 
     return values.map(scales[character].domain([min, max]));
