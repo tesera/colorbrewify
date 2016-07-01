@@ -1,48 +1,7 @@
-var scale = require('d3-scale');
-var chromatic = require('d3-scale-chromatic');
-var schemes = require('./schemes.json')
+'use strict';
 
-module.exports = function (values) {
-    var character;
-    var scales = {
-        sequential: scale.scaleSequential(chromatic.interpolateOrRd),
-        qualitative: scale.scaleOrdinal(chromatic.schemeAccent),
-        diverging: scale.scaleSequential(chromatic.interpolatePiYG),
-        binary: scale.scaleOrdinal(chromatic.schemeAccent),
-    };
-
-    var sorted = values.slice().sort(function (a, b) {
-        return a - b;
-    });
-
-    var min = sorted[0];
-    var max = sorted[sorted.length-1];
-
-    var distinct = values.reduce(function (uniques, v) {
-        if (uniques.indexOf(v) === -1) uniques.push(v);
-        return uniques
-    }, []);
-
-    var isNumeric = distinct.reduce(function (is, v) {
-        return is && !isNaN(parseFloat(v)) && isFinite(v);
-    }, true);
-
-    var hasNegative = distinct.reduce(function (has, v) {
-        return has || (v < 0);
-    }, false);
-
-    var isBinary = distinct.reduce(function (is, v) {
-        return is && v.toString().match(/yes|no|true|false|1|0/i);
-    }, true);
-
-    var isWholeNumber = distinct.reduce(function (is, v) {
-        return is && (!/\d*\.\d*/.test(parseFloat(v)));
-    }, true);
-   
-    if (isBinary) character = 'binary';
-    else if (isNumeric && hasNegative) character = 'diverging';
-    else if (isWholeNumber && (distinct.length / values.length < 0.5)) character = 'qualitative';
-    else character = 'sequential';
-
-    return values.map(scales[character].domain([min, max]));
+module.exports = {
+    schemes: require('./lib/schemes'),
+    character: require('./lib/character'),
+    colorbrewify: require('./lib/colorbrewify')
 };

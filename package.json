@@ -1,12 +1,12 @@
 {
   "name": "colorbrewify",
-  "version": "1.0.1",
-  "description": "values to colors.",
+  "version": "2.0.0",
+  "description": "Values to colors based on data character.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "bin": "./cli.js",
+  "bin": "./bin/cli.js",
   "scripts": {
     "test": "tape test/**/*.js"
   },
