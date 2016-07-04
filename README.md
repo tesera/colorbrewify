@@ -12,7 +12,9 @@ undefined
 undefined
 > colorbrewify.character(values);
 'sequential'
-> colorbrewify.schemes('sequential');
+> var schemes = colorbrewify.schemes('sequential');
+undefined
+console.log(schemes);
 { interpolateBuGn: [Function],
   interpolateBuPu: [Function],
   interpolateGnBu: [Function],
