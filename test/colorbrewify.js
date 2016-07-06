@@ -27,9 +27,9 @@ test('diverging values', function(t) {
 });
 
 test('binary values', function(t) {
-    var expectedColors = ['rgb(103, 0, 13)', 'rgb(255, 245, 240)', 'rgb(103, 0, 13)', 'rgb(103, 0, 13)', 'rgb(255, 245, 240)'];
+    var expectedColors = ['#fdc086', '#ffff99', '#fdc086', '#fdc086', '#ffff99'];
     var values = [true, false, true, true, false];
-    var colors = colorbrewify(values, schemes('binary').interpolateReds);
+    var colors = colorbrewify(values, schemes('binary').schemeAccent);
     t.deepLooseEqual(colors, expectedColors);
     t.end();
 });

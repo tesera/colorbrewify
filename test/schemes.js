@@ -53,11 +53,13 @@ test('sequential scheme', function(t) {
 
 test('binary scheme', function(t) {
     var scheme = schemes('binary');
-    t.equal(typeof scheme.interpolateBlues, 'function');
-    t.equal(typeof scheme.interpolateGreens, 'function');
-    t.equal(typeof scheme.interpolateGreys, 'function');
-    t.equal(typeof scheme.interpolatePurples, 'function');
-    t.equal(typeof scheme.interpolateReds, 'function');
-    t.equal(typeof scheme.interpolateOranges, 'function');
+    t.equal(typeof scheme.schemeAccent, 'object');
+    t.equal(typeof scheme.schemeDark2, 'object');
+    t.equal(typeof scheme.schemePaired, 'object');
+    t.equal(typeof scheme.schemePastel1, 'object');
+    t.equal(typeof scheme.schemePastel2, 'object');
+    t.equal(typeof scheme.schemeSet1, 'object');
+    t.equal(typeof scheme.schemeSet2, 'object');
+    t.equal(typeof scheme.schemeSet3, 'object');
     t.end();
 });
